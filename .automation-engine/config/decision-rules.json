@@ -1,0 +1,93 @@
+{
+  "_descricao": "Regras de decisão de modo. Avaliadas em ordem — primeira que bater vence.",
+  "_versao": "2.0.0",
+
+  "hard_rules": [
+    {
+      "id": "HR-001",
+      "nome": "Critical sempre manual",
+      "condicao": { "complexity": "critical" },
+      "resultado": { "mode": "manual", "motivo": "Complexidade crítica exige supervisão humana" }
+    },
+    {
+      "id": "HR-002",
+      "nome": "Infra high sempre manual",
+      "condicao": { "category": "infra", "complexity": "high" },
+      "resultado": { "mode": "manual", "motivo": "Infraestrutura de alto risco" }
+    },
+    {
+      "id": "HR-003",
+      "nome": "Requires deploy sempre manual",
+      "condicao": { "requires_deploy": true },
+      "resultado": { "mode": "manual", "motivo": "Deploy requer supervisão humana" }
+    },
+    {
+      "id": "HR-004",
+      "nome": "Mode override manual",
+      "condicao": { "mode_override": "manual" },
+      "resultado": { "mode": "manual", "motivo": "Forçado manualmente pelo usuário" }
+    },
+    {
+      "id": "HR-005",
+      "nome": "Mode override automatic",
+      "condicao": { "mode_override": "automatic" },
+      "resultado": { "mode": "automatic", "motivo": "Forçado manualmente pelo usuário" }
+    }
+  ],
+
+  "soft_rules": [
+    {
+      "id": "SR-001",
+      "nome": "Low complexity sempre automático",
+      "condicao": { "complexity": "low" },
+      "resultado": { "mode": "automatic", "motivo": "Baixo risco — execução segura sem supervisão" }
+    },
+    {
+      "id": "SR-002",
+      "nome": "Docs sempre automático",
+      "condicao": { "category": "docs" },
+      "resultado": { "mode": "automatic", "motivo": "Documentação não afeta comportamento" }
+    },
+    {
+      "id": "SR-003",
+      "nome": "Test medium automático",
+      "condicao": { "category": "test", "complexity_in": ["low", "medium"] },
+      "resultado": { "mode": "automatic", "motivo": "Testes de baixa/média complexidade são seguros" }
+    },
+    {
+      "id": "SR-004",
+      "nome": "Refactor medium automático",
+      "condicao": { "category": "refactor", "complexity": "medium" },
+      "resultado": { "mode": "automatic", "motivo": "Refatoração controlada pode ser automatizada" }
+    },
+    {
+      "id": "SR-005",
+      "nome": "Feature medium manual",
+      "condicao": { "category": "feature", "complexity": "medium" },
+      "resultado": { "mode": "manual", "motivo": "Features médias requerem validação visual humana" }
+    },
+    {
+      "id": "SR-006",
+      "nome": "Bugfix com API manual",
+      "condicao": { "category": "bugfix", "requires_api": true },
+      "resultado": { "mode": "manual", "motivo": "Bug com integração pode ter efeitos colaterais" }
+    },
+    {
+      "id": "SR-007",
+      "nome": "Analysis sempre automático",
+      "condicao": { "category": "analysis" },
+      "resultado": { "mode": "automatic", "motivo": "Análise é read-only — sem risco" }
+    },
+    {
+      "id": "SR-008",
+      "nome": "Full-stack high manual",
+      "condicao": { "affects_area": "full-stack", "complexity": "high" },
+      "resultado": { "mode": "manual", "motivo": "Full-stack alto — múltiplos sistemas afetados" }
+    }
+  ],
+
+  "default": {
+    "mode": "manual",
+    "motivo": "Fallback conservador — sem regra específica encontrada"
+  }
+}
