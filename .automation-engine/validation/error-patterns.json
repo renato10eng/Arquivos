@@ -1,0 +1,38 @@
+{
+  "_descricao": "Catálogo de erros — classifica o que pode tentar novamente vs o que precisa de humano",
+
+  "typescript_errors": {
+    "TS2345": { "class": "RETRYABLE", "acao": "Corrigir tipagem — verificar interface do dado recebido" },
+    "TS2304": { "class": "RETRYABLE", "acao": "Import ou declaração de tipo faltando" },
+    "TS7006": { "class": "RETRYABLE", "acao": "Parâmetro sem tipo explícito — adicionar tipagem" },
+    "TS2571": { "class": "RETRYABLE", "acao": "Tipo 'unknown' — investigar origem e tipar corretamente" },
+    "TS2339": { "class": "RETRYABLE", "acao": "Propriedade não existe no tipo — verificar interface" }
+  },
+
+  "test_errors": {
+    "ASSERTION_FAILED": { "class": "RETRYABLE", "max_retries": 3, "acao": "Revisar expect — dado mockado pode não bater com implementação" },
+    "COMPONENT_NOT_RENDERED": { "class": "RETRYABLE", "max_retries": 2, "acao": "Verificar imports e exports do componente" },
+    "MOCK_NOT_CALLED": { "class": "RETRYABLE", "max_retries": 2, "acao": "Revisar setup do mock — pode estar no escopo errado" },
+    "TIMEOUT": { "class": "RETRYABLE", "max_retries": 1, "acao": "Aumentar timeout ou verificar se há await faltando" },
+    "MODULE_NOT_FOUND": { "class": "PERMANENT", "acao": "Dependência não instalada — requer ação manual" }
+  },
+
+  "execution_errors": {
+    "FILE_NOT_FOUND": { "class": "PERMANENT", "acao": "Caminho do arquivo incorreto na tarefa" },
+    "PERMISSION_DENIED": { "class": "ESCALATE", "acao": "Problema de permissão — requer ação manual" },
+    "CIRCULAR_DEPENDENCY": { "class": "RETRYABLE", "max_retries": 2, "acao": "Reorganizar imports" },
+    "MAX_RETRIES_EXCEEDED": { "class": "PERMANENT", "acao": "Escalar para usuário com análise completa" }
+  },
+
+  "api_errors": {
+    "ENDPOINT_NOT_FOUND": { "class": "ESCALATE", "acao": "Endpoint não existe — verificar se back-end precisa ser criado" },
+    "AUTH_REQUIRED": { "class": "ESCALATE", "acao": "Rota requer autenticação não mapeada — requer análise manual" },
+    "CORS_ERROR": { "class": "ESCALATE", "acao": "Configuração CORS — requer mudança em back-end ou proxy" }
+  },
+
+  "classes": {
+    "RETRYABLE": "Tentar novamente automaticamente (máx 3x)",
+    "PERMANENT": "Não tentar novamente — reportar imediatamente",
+    "ESCALATE": "Requer decisão humana antes de continuar"
+  }
+}
