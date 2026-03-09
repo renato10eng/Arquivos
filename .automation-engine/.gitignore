@@ -1,0 +1,13 @@
+# Automation Engine — ignore tasks em processamento e logs grandes
+.automation-engine/tasks/processing/
+.automation-engine/tasks/completed/
+.automation-engine/tasks/failed/
+
+# Manter no repositório:
+# .automation-engine/AGENT.md          ← motor principal (SEMPRE commitar)
+# .automation-engine/QUICK-START.md    ← guia de uso (SEMPRE commitar)
+# .automation-engine/config/            ← configurações (SEMPRE commitar)
+# .automation-engine/core/              ← regras (SEMPRE commitar)
+# .automation-engine/validation/        ← validação (SEMPRE commitar)
+# .automation-engine/tasks/incoming/TEMPLATE.task.json  ← template (commitar)
+# .automation-engine/logs/execution-log.json  ← depende da equipe
