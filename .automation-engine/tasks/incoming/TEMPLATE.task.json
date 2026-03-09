@@ -1,0 +1,38 @@
+{
+  "_instrucao": "Use este template para criar tarefas manualmente. Salve em .automation-engine/tasks/incoming/",
+  "_nome_arquivo": "task-[YYYY-MM-DD]-[numero].task.json",
+
+  "id": "task-2025-001",
+  "title": "Título exato do card no Business Map",
+  "type": "feature",
+  "_type_opcoes": ["feature", "bugfix", "refactor", "docs", "test", "infra", "analysis"],
+
+  "description": "Descrição completa do card",
+
+  "acceptance_criteria": [
+    "Critério de aceite 1",
+    "Critério de aceite 2"
+  ],
+
+  "test_criteria": [
+    "Cenário de teste 1",
+    "Cenário de teste 2"
+  ],
+
+  "context": "Informação adicional relevante (opcional)",
+
+  "affects_area": "front-end",
+  "_affects_area_opcoes": ["front-end", "back-end", "full-stack", "infra"],
+
+  "requires_api": false,
+  "requires_deploy": false,
+  "requires_tests": true,
+
+  "mode_override": null,
+  "_mode_override_nota": "null = motor decide. 'automatic' ou 'manual' para forçar.",
+
+  "created_at": "2025-01-01T09:00:00Z",
+  "created_by": "developer",
+  "business_map_id": "BM-001",
+  "business_map_url": "https://businessmap.io/card/BM-001"
+}
