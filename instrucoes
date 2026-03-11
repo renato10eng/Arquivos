@@ -1,0 +1,93 @@
+Leia o arquivo .github/copilot-instructions.md que já 
+existe nesse projeto.
+
+Agora analise o projeto completo antes de qualquer 
+alteração:
+
+ANÁLISE DE AMBIENTE
+- Sistema operacional e terminal usado (WSL, bash)
+- Gerenciador de pacotes (npm, yarn, pnpm)
+- Versão do Node.js usada no projeto
+- Comandos disponíveis no terminal desse ambiente
+
+ANÁLISE DE DEPENDÊNCIAS
+- package.json e todas as dependências e devDependencies
+- Versões exatas das bibliotecas principais
+- Dependências que já cobrem funcionalidades para não
+  instalar duplicatas
+
+ANÁLISE DE CONFIGURAÇÃO
+- jest.config, vitest.config ou qualquer config de testes
+- tsconfig e configurações de TypeScript se existir
+- eslint, prettier, editorconfig
+- vite, webpack, babel ou bundler usado
+- Variáveis de ambiente necessárias (.env.example)
+- Arquivos de CI/CD se existirem
+
+ANÁLISE DE ESTRUTURA
+- Estrutura completa de pastas e responsabilidade 
+  de cada uma
+- Onde ficam os componentes, serviços, hooks, utils
+- Onde ficam os arquivos de teste e qual a convenção
+  de nomenclatura (*.spec.ts, *.test.ts, etc)
+- Como as importações são feitas (relativas, absolutas,
+  aliases configurados como @/ ou ~/)
+- Padrões de nomenclatura de arquivos e funções
+  já usados no projeto
+
+ANÁLISE DE TESTES
+- Framework de testes usado (Jest, Vitest, etc)
+- Como os testes já existentes estão escritos
+- Quais mocks e helpers já existem para reutilizar
+- Nível atual de coverage se disponível
+- Comando exato para rodar todos os testes
+- Comando exato para rodar um arquivo de teste isolado
+- Comando exato para rodar testes com coverage
+- Comando exato para rodar testes em modo watch
+- Se existe algum script customizado no package.json
+  para testes
+
+ANÁLISE DE PADRÕES DE CÓDIGO
+- Se usa TypeScript verificar como os tipos estão
+  organizados e onde ficam
+- Padrões de componentes se for frontend
+- Padrões de API e controllers se for backend
+- Como o tratamento de erros é feito no projeto
+- Como chamadas de API são feitas e organizadas
+- Se existe algum padrão de estado global (Redux,
+  Zustand, Context, etc)
+
+Com base nessa análise completa, melhore e complemente 
+o arquivo .github/copilot-instructions.md existente.
+
+O QUE ADICIONAR
+- Todos os comandos exatos descobertos na análise
+- Tecnologias e versões reais do projeto
+- Padrões de nomenclatura encontrados no código real
+- Estrutura de pastas com responsabilidade de cada uma
+- Como fazer importações nesse projeto especificamente
+- Aliases e caminhos configurados
+- Convenções de teste encontradas
+- Qualquer informação específica que evite tentativas
+  repetidas de adivinhar comandos ou padrões
+
+O QUE NÃO FAZER
+- Não remover nada que já existe no arquivo
+- Não adicionar suposições — apenas o que encontrou
+  no projeto real
+- Não alterar nada sem antes mostrar o que encontrou
+  e o que pretende adicionar aguardando confirmação
+- Se encontrar contradição entre o que já está no
+  arquivo e o que encontrou no projeto, apontar
+  claramente antes de qualquer alteração
+- Não inventar comandos — apenas os que existem
+  no package.json ou que funcionam no ambiente WSL
+  confirmado
+
+FORMATO DE ENTREGA
+Antes de alterar o arquivo mostre:
+1. O que você encontrou na análise
+2. O que pretende adicionar
+3. Se encontrou alguma contradição ou problema
+
+Só altere o arquivo após essa confirmação.
